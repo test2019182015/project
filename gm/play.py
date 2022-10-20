@@ -34,7 +34,6 @@ shot_range=[None,None,None]
 shot_X=[None,None,None]
 shot_Y=[None,None,None]
 shot_to=[None,None,None]
-shot_on=0
 pygame.mixer.init()
 # 710, 896
 
@@ -243,7 +242,7 @@ def run():
     if stay_move == 1:
         stay_draw()
 def start_run():
-    global frame,magazine,shot_on
+    global frame,magazine
     global boshy_X
     global boshy_Y
     draw_back()
@@ -325,6 +324,7 @@ def up_key_right():
 
 
 def prass_key_r():
+
     global boshy_Y
     global boshy_X
     global ran_s, map_state
@@ -339,31 +339,34 @@ def prass_key_r():
     delay(0.5)
     print('load')
     if ran_s == 1:
-        pygame.mixer.music.load('boshy4_snd.wav')
+        pygame.mixer.music.load('boshy_snd.wav')
         pygame.mixer.music.play()
     elif ran_s == 2:
-        pygame.mixer.music.load('boshy4_snd.wav')
+        pygame.mixer.music.load('boshy2_snd.wav')
         pygame.mixer.music.play()
     elif ran_s == 3:
-        pygame.mixer.music.load('boshy4_snd.wav')
+        pygame.mixer.music.load('boshy3_snd.wav')
         pygame.mixer.music.play()
     elif ran_s == 4:
         pygame.mixer.music.load('boshy4_snd.wav')
         pygame.mixer.music.play()
     elif ran_s == 5:
-        pygame.mixer.music.load('boshy4_snd.wav')
+        pygame.mixer.music.load('boshy5_snd.wav')
         pygame.mixer.music.play()
     elif ran_s == 6:
-        pygame.mixer.music.load('boshy4_snd.wav')
+        pygame.mixer.music.load('boshy6_snd.wav')
         pygame.mixer.music.play()
     delay(0.5)
-    # pygame.mixer.music.load('time_snd.wav')
-    # pygame.mixer.music.play()
+    pygame.mixer.music.load('time_snd.wav')
+    pygame.mixer.music.play()
 
 def prass_key_x():
-    global shot_on
     global move_to
-    shot_on+=1
+    for i in range(0, 3, 1):
+        if (test[i] == False):
+            pygame.mixer.music.load('boshyshoot_snd.wav')
+            pygame.mixer.music.play()
+            break
     shOt()
 
 
